@@ -106,3 +106,5 @@ dist
 # Shopify config files
 config.yml
 settings_data.json
+
+.DS_Store

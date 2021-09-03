@@ -1,0 +1,19 @@
+<div class="index-sections">
+  {{ content_for_index }}
+</div>
+
+<script>
+  var instaImageHeight;
+  function resizeInstaVideo() {
+    instaImageHeight = $('#instafeed .column img').css('height');
+    $('#instafeed .column video').each(function() {
+      $(this).css('height', instaImageHeight);
+    });
+  }
+  $(window).load(function() {
+    resizeInstaVideo();
+  });
+  $(window).resize(function() {
+    resizeInstaVideo();
+  });
+</script>

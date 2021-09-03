@@ -1,0 +1,86 @@
+$orage: #fc4c02;
+
+.logo-bar__item {
+  max-width: 100px;
+}
+
+.no-bullets {
+  list-style-type: none;
+  margin-left: 0;
+
+  li {
+    border: solid 1px #bbbbbb;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    margin: 10px 2px;
+    display: inline-block;
+
+    &:hover, &.filter--active {
+      background-color: $orage;
+      border-color: $orage;
+
+      a {
+        color: #fff;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 5px 10px;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.sub-footer {
+  .container {
+    text-align: center;
+
+    .four {
+      &.columns {
+        display: inline-block;
+        float: none;
+        text-align: left;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.clear .signup-submit {
+  visibility: visible !important;
+  
+  input {
+  	background-color: #fc4c02;
+    color: #ffffff;
+  }
+}
+
+.collection_info_wrapper {
+  
+  .collection_description {
+    @media (min-width: 768px) {
+      float: left;
+      width: 65%;
+    }
+  }
+  
+  .collection_signup {
+    border-top: solid 1px #bbbbbb;
+    @media (min-width: 768px) {
+      float: left;
+      width: 35%;
+      box-sizing: border-box;
+      padding-left: 30px;
+      border-top: none;
+      border-left: solid 1px #bbbbbb;
+    }
+  }
+}

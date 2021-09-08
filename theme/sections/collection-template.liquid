@@ -1,25 +1,25 @@
 <style>
-  .filter-btn {
-    background: none;
-    background-color: #16161d;
-    box-shadow: inset -3px -3px rgb(0 0 0 / 10%);
-    color: #fff;
-    display: block;
-    margin-bottom: 1rem;
-    padding: 15px;
-    transition: background 0.2s;
-  }
-  .filter-btn:hover {
-    background-color: #16161dbd;
-  }
-  .tags {
-    max-height: 0;
-    overflow: hidden;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    transition: all .3s ease-in;
-    transition-property: max-height, border-top, border-bottom;
-  }
+.filter-btn {
+  background: none;
+  background-color: #16161d;
+  box-shadow: inset -3px -3px rgb(0 0 0 / 10%);
+  color: #fff;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 15px;
+  transition: background 0.2s;
+}
+.filter-btn:hover {
+  background-color: #16161dbd;
+}
+.tags {
+  max-height: 0;
+  overflow: hidden;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  transition: all .3s ease-in;
+  transition-property: max-height, border-top, border-bottom;
+}
 </style>
 
 {% paginate collection.products by section.settings.pagination_limit %}
@@ -143,12 +143,12 @@
     {% endif %}
 
       {% if template == 'collection' and settings.show_inline_tags %}
-          <div class="accordian">
-            <button class="filter-btn">Filter <span>+</span></button>
-              <div class="tags">
-                {% include 'tags-collection' %}  
-              </div>        
-          </div>
+        <div class="accordian">
+          <button class="filter-btn">Filter <span>+</span></button>
+            <div class="tags">
+              {% include 'tags-collection' %}  
+            </div>        
+        </div>
       {% endif %}
 
     {% if collection.products.size == 0 %}
@@ -316,13 +316,13 @@
       accordianActions.classList.toggle('filter-btn--active');
         if(accordianActions.classList.contains('filter-btn--active')) {
           accordianContent.style.maxHeight = accordianContent.scrollHeight + 'px';
-          accordianContent.style.borderTop = '1px solid #e2e2e2'
-          accordianContent.style.borderBottom = '1px solid #e2e2e2'
+          accordianContent.style.borderTop = '1px solid #e2e2e2';
+          accordianContent.style.borderBottom = '1px solid #e2e2e2';
           accordianActions.innerHTML = 'Filter <span>-</span>';
         } else {
           accordianContent.style.maxHeight = 0;
-          accordianContent.style.borderTop = '1px solid #fff'
-          accordianContent.style.borderBottom = '1px solid #fff'
+          accordianContent.style.borderTop = '1px solid #fff';
+          accordianContent.style.borderBottom = '1px solid #fff';
           accordianActions.innerHTML = 'Filter <span>+</span>';
         }
     })

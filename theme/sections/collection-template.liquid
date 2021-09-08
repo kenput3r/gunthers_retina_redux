@@ -311,19 +311,19 @@
 {% endschema %}
 <script> 
   var accordianActions = document.querySelector('.filter-btn');
-    accordianActions.addEventListener('click', function() {
-      const accordianContent = accordianActions.nextElementSibling;
-      accordianActions.classList.toggle('filter-btn--active');
-        if(accordianActions.classList.contains('filter-btn--active')) {
-          accordianContent.style.maxHeight = accordianContent.scrollHeight + 'px';
-          accordianContent.style.borderTop = '1px solid #e2e2e2';
-          accordianContent.style.borderBottom = '1px solid #e2e2e2';
-          accordianActions.innerHTML = 'Filter <span>-</span>';
-        } else {
-          accordianContent.style.maxHeight = 0;
-          accordianContent.style.borderTop = '1px solid #fff';
-          accordianContent.style.borderBottom = '1px solid #fff';
-          accordianActions.innerHTML = 'Filter <span>+</span>';
-        }
+  accordianActions.addEventListener('click', function() {
+    const accordianContent = accordianActions.nextElementSibling;
+    accordianActions.classList.toggle('filter-btn--active');
+      if(accordianActions.classList.contains('filter-btn--active')) {
+        accordianContent.style.maxHeight = accordianContent.scrollHeight + 'px';
+        accordianContent.style.borderTop = '1px solid #e2e2e2';
+        accordianContent.style.borderBottom = '1px solid #e2e2e2';
+        accordianActions.innerHTML = 'Filter <span>-</span>';
+      } else {
+        accordianContent.style.maxHeight = 0;
+        accordianContent.style.borderTop = '1px solid #fff';
+        accordianContent.style.borderBottom = '1px solid #fff';
+        accordianActions.innerHTML = 'Filter <span>+</span>';
+      }
     })
 </script> 

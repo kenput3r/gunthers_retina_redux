@@ -8,21 +8,38 @@
   {% if product.featured_image.alt contains 'youtube' or image.alt contains 'vimeo' %}
     {% assign alt_text = product.title %}
   {% else %}
-    {% assign alt_text = product.featured_image.alt %}
+    {% if product.featured_image %}
+      {% assign alt_text = product.featured_image.alt %}
+    {% else %}
+      {% assign alt_text = "view this product in store" %}
+    {% endif %}
   {% endif %}
 
   <a href="{{ product.url | within: collection }}" itemprop="url">
     <div class="relative product_image">
       <img  src="{{ 'loader.gif' | asset_url }}"
-            {% if products_per_row == '2' %}
-              data-src="{{ product.featured_image | product_img_url: '580x' }}"
-              data-src-retina="{{ product.featured_image | product_img_url: '580x', scale: 2 }}"
-            {% elsif products_per_row == '3' %}
-              data-src="{{ product.featured_image | product_img_url: '380x' }}"
-              data-src-retina="{{ product.featured_image | product_img_url: '380x', scale: 2 }}"
+            {% if product.featured_image %}
+              {% if products_per_row == '2' %}
+                data-src="{{ product.featured_image | product_img_url: '580x' }}"
+                data-src-retina="{{ product.featured_image | product_img_url: '580x', scale: 2 }}"
+              {% elsif products_per_row == '3' %}
+                data-src="{{ product.featured_image | product_img_url: '380x' }}"
+                data-src-retina="{{ product.featured_image | product_img_url: '380x', scale: 2 }}"
+              {% else %}
+                data-src="{{ product.featured_image | product_img_url: '280x' }}"
+                data-src-retina="{{ product.featured_image | product_img_url: '280x', scale: 2 }}"
+              {% endif %}
             {% else %}
-              data-src="{{ product.featured_image | product_img_url: '280x' }}"
-              data-src-retina="{{ product.featured_image | product_img_url: '280x', scale: 2 }}"
+              {% if products_per_row == '2' %}
+                data-src="{{ 'no-photo.jpg' | asset_img_url: '580x' }}"
+                data-src-retina="{{ 'no-photo.jpg' | asset_img_url: '580x', scale: 2 }}"
+              {% elsif products_per_row == '3' %}
+                data-src="{{ 'no-photo.jpg' | asset_img_url: '380x' }}"
+                data-src-retina="{{ 'no-photo.jpg' | asset_img_url: '380x', scale: 2 }}"
+              {% else %}
+                data-src="{{ 'no-photo.jpg' | asset_img_url: '280x' }}"
+                data-src-retina="{{ 'no-photo.jpg' | asset_img_url: '280x', scale: 2 }}"
+              {% endif %}
             {% endif %}
             alt="{{ alt_text | escape }}"
             class="primary"
